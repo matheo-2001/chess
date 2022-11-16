@@ -1,5 +1,9 @@
 <?php
 
+interface PositionGame {
+    public function getGamePosition($position);
+}
+
 class Pieces {
 
     public $grille;
