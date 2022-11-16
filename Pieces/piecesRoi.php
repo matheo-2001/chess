@@ -3,7 +3,7 @@
 require_once ('Pieces/piecesPieces.php');
 require_once ('Pieces/piecesGrille.php');
 
-class Roi extends Pieces
+class Roi extends Pieces implements PositionGame
 {
     public function getGamePosition($position)
     {

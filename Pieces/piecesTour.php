@@ -4,7 +4,7 @@ require_once ('Pieces/piecesPieces.php');
 require_once ('Pieces/piecesGrille.php');
 
 
-class Tour extends Pieces
+class Tour extends Pieces implements PositionGame
 {
     public function getGamePosition($position)
     {
