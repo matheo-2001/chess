@@ -2,7 +2,7 @@
 
 ## Projet en automonie : SOLID
 
-### - S : Single Responsibility Principe (SRP)
+### - S : Single Responsibility Principle (SRP)
 
 Pour rappel : "Une classe ne doit avoir q'une seul et unique responsabilité"
 <br/>
@@ -15,3 +15,4 @@ Le principe de responsabilité unique permet de séparer par fichier les classes
 - Plus facile a récupérer par d'autres dev permettant de lui faciliter l'évolution du projet
 - D'obtenir une meilleure arborescence du projet
 
+### - O : Open/Closed Principle
