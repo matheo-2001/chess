@@ -4,10 +4,10 @@ namespace Chess;
 
 class Grille {
 
-public $w;
+    public $w;
 
-public function __construct()
-{
-    $this->w = 8;
-}
+    public function __construct()
+    {
+        $this->w = 8;
+    }
 }

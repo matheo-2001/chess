@@ -58,7 +58,3 @@ class Reine extends Pieces implements PositionGame
     }
 }
 
-$piece = new Reine('C3');
-$position = $piece->position;
-$xy = $piece->getGamePosition($position);
-$piece->show($position, $xy);
