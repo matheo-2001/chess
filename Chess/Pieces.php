@@ -1,5 +1,7 @@
 <?php
 
+namespace Chess;
+
 interface PositionGame {
     public function getGamePosition($position);
 }

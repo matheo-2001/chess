@@ -1,10 +1,7 @@
 <?php
+namespace Chess;
 
-require_once ('Pieces/piecesPieces.php');
-require_once ('Pieces/piecesGrille.php');
-
-
-class Fou extends Pieces implements PositionGame
+class Roi extends Pieces implements PositionGame
 {
     public function getGamePosition($position)
     {
@@ -42,23 +39,25 @@ class Fou extends Pieces implements PositionGame
         $array = array();
         foreach ($na as $value) {
             $result = [
-                $an[($na[$x] + $value)] . ($y + $value) => $an[($na[$x] + $value)] . ($y + $value),
-                $an[($na[$x] - $value)] . ($y - $value) => $an[($na[$x] - $value)] . ($y - $value),
-                $an[($na[$x] + $value)] . ($y - $value) => $an[($na[$x] + $value)] . ($y - $value),
-                $an[($na[$x] - $value)] . ($y + $value) => $an[($na[$x] - $value)] . ($y + $value),
+            $an[($na[$x] + 1)] . ($y + 1) => $an[($na[$x] + 1)] . ($y + 1),
+            $an[($na[$x] - 1)] . ($y - 1) => $an[($na[$x] - 1)] . ($y - 1),
+            $an[($na[$x] + 1)] . ($y - 1) => $an[($na[$x] + 1)] . ($y - 1),
+            $an[($na[$x] - 1)] . ($y + 1) => $an[($na[$x] - 1)] . ($y + 1),
+            $an[($na[$x] + 1)] . $y => $an[($na[$x] + 1)] . $y,
+            $an[($na[$x] - 1)] . $y => $an[($na[$x] - 1)] . $y,
+            $an[$na[$x]] . ($y + 1) => $an[($na[$x] + 1)] . ($y + 1),
+            $an[$na[$x]] . ($y - 1) => $an[($na[$x] - 1)] . ($y - 1),
             ];
+            
             $value++;
             // Fusionne
             $array = array_merge($array, $result);
-        } 
+        }
         // Retourne le tableau
         return $array;
     }
+    
 
-        
 }
 
-$piece = new Fou('C3');
-$position = $piece->position;
-$xy = $piece->getGamePosition($position);
-$piece->show($position, $xy);
+

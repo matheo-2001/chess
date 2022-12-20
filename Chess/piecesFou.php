@@ -1,10 +1,9 @@
 <?php
 
-require_once ('Pieces/piecesPieces.php');
-require_once ('Pieces/piecesGrille.php');
+namespace Chess;
 
 
-class Tour extends Pieces implements PositionGame
+class Fou extends Pieces implements PositionGame
 {
     public function getGamePosition($position)
     {
@@ -42,21 +41,19 @@ class Tour extends Pieces implements PositionGame
         $array = array();
         foreach ($na as $value) {
             $result = [
-                $x . $value => $x . $value,
-                $an[($na[$x] + $value)] . $y => $an[($na[$x] + $value)] . $y,
-                $an[($na[$x] - $value)] . $y => $an[($na[$x] - $value)] . $y,
+                $an[($na[$x] + $value)] . ($y + $value) => $an[($na[$x] + $value)] . ($y + $value),
+                $an[($na[$x] - $value)] . ($y - $value) => $an[($na[$x] - $value)] . ($y - $value),
+                $an[($na[$x] + $value)] . ($y - $value) => $an[($na[$x] + $value)] . ($y - $value),
+                $an[($na[$x] - $value)] . ($y + $value) => $an[($na[$x] - $value)] . ($y + $value),
             ];
-
             $value++;
-            // Fusionne 
+            // Fusionne
             $array = array_merge($array, $result);
-        }
+        } 
         // Retourne le tableau
         return $array;
     }
+
+        
 }
 
-$piece = new Tour('C3');
-$position = $piece->position;
-$xy = $piece->getGamePosition($position);
-$piece->show($position, $xy);

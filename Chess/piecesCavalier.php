@@ -1,7 +1,6 @@
 <?php
 
-require_once ('Pieces/piecesPieces.php');
-require_once ('Pieces/piecesGrille.php');
+namespace Chess;
 
 
 class Cavalier extends Pieces implements PositionGame
@@ -53,7 +52,3 @@ class Cavalier extends Pieces implements PositionGame
     }
 }
 
-$piece = new Cavalier('C3');
-$position = $piece->position;
-$xy = $piece->getGamePosition($position);
-$piece->show($position, $xy);

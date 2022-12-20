@@ -1,5 +1,7 @@
 <?php
 
+namespace Chess;
+
 class Grille {
 
 public $w;

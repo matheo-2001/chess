@@ -1,7 +1,6 @@
 <?php
 
-require_once ('Pieces/piecesPieces.php');
-require_once ('Pieces/piecesGrille.php');
+namespace Chess;
 
 
 class Pion extends Pieces implements PositionGame {

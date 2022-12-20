@@ -1,9 +1,9 @@
 <?php
 
-require_once ('Pieces/piecesPieces.php');
-require_once ('Pieces/piecesGrille.php');
+namespace Chess;
 
-class Roi extends Pieces implements PositionGame
+
+class Reine extends Pieces implements PositionGame
 {
     public function getGamePosition($position)
     {
@@ -41,16 +41,14 @@ class Roi extends Pieces implements PositionGame
         $array = array();
         foreach ($na as $value) {
             $result = [
-            $an[($na[$x] + 1)] . ($y + 1) => $an[($na[$x] + 1)] . ($y + 1),
-            $an[($na[$x] - 1)] . ($y - 1) => $an[($na[$x] - 1)] . ($y - 1),
-            $an[($na[$x] + 1)] . ($y - 1) => $an[($na[$x] + 1)] . ($y - 1),
-            $an[($na[$x] - 1)] . ($y + 1) => $an[($na[$x] - 1)] . ($y + 1),
-            $an[($na[$x] + 1)] . $y => $an[($na[$x] + 1)] . $y,
-            $an[($na[$x] - 1)] . $y => $an[($na[$x] - 1)] . $y,
-            $an[$na[$x]] . ($y + 1) => $an[($na[$x] + 1)] . ($y + 1),
-            $an[$na[$x]] . ($y - 1) => $an[($na[$x] - 1)] . ($y - 1),
+                $an[($na[$x] + $value)] . ($y + $value) => $an[($na[$x] + $value)] . ($y + $value),
+                $an[($na[$x] - $value)] . ($y - $value) => $an[($na[$x] - $value)] . ($y - $value),
+                $an[($na[$x] + $value)] . ($y - $value) => $an[($na[$x] + $value)] . ($y - $value),
+                $an[($na[$x] - $value)] . ($y + $value) => $an[($na[$x] - $value)] . ($y + $value),
+                $x . $value => $x . $value,
+                $an[($na[$x] + $value)] . $y => $an[($na[$x] + $value)] . $y,
+                $an[($na[$x] - $value)] . $y => $an[($na[$x] - $value)] . $y,
             ];
-            
             $value++;
             // Fusionne
             $array = array_merge($array, $result);
@@ -58,12 +56,9 @@ class Roi extends Pieces implements PositionGame
         // Retourne le tableau
         return $array;
     }
-    
-
 }
 
-
-$piece = new Roi('C3');
+$piece = new Reine('C3');
 $position = $piece->position;
 $xy = $piece->getGamePosition($position);
 $piece->show($position, $xy);
